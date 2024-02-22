@@ -89,9 +89,9 @@ class SettingController extends Controller
         $data->evaluation_end_date = $request->evaluation_end_date;
         $data->save();
 
-        $year = Timeframe::find($id);
-        $times = Timeframe::all();
-        return redirect()->route('admin.settings.dates', ['year' => $year])->with('success', 'Dates Saved Successfully');
+        $years = Timeframe::all();
+
+        return redirect()->back()->with('success', 'Dates Saved Successfully');
     }
 
 

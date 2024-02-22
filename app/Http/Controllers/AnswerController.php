@@ -30,9 +30,10 @@ class AnswerController extends Controller
         //$practices=Practice::with('user')->get();
         $year = $this->activeYear();
         $questions = QuestionYear::where('year_id',$this->activeYear()->id)->get();
+        $questCount = QuestionYear::where('year_id',$this->activeYear()->id)->count();
         $practices = auth()->user()->practices()->get();
         $answeredQ = auth()->user()->answers()->get();
-        return view('user.answer.index',compact('practices','questions','answeredQ','year'));
+        return view('user.answer.index',compact('practices','questions','answeredQ','year','questCount'));
     }
 
     /**

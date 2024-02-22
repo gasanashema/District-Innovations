@@ -58,7 +58,7 @@ $datesCheck = App\Helpers\checkPracticeDates();
                         @php
                         
                         $allAnswered = App\Helpers\checkAllPracticeAnswered($practice->id,auth()->user()->id);
-                        $questCount = App\Models\Question::where('status',1)->count();
+                      
                         @endphp
 
                        Practice #{{ $i++}} :: {{ $practice->name }} 
@@ -176,7 +176,11 @@ $datesCheck = App\Helpers\checkPracticeDates();
                                           </form><!-- Question & Answer Form -->
                                           <div class="mt-3 d-flex justify-content-between">
                                       <button class="btn btn-primary @if($k == 1) disabled @endif" onclick="showTab('prev')">Previous</button>
-                                      <button class="btn btn-primary ms-2 @if($k == $questCount) disabled @endif" onclick="showTab('next')">Next</button>
+                                       @if($k < $questCount) 
+                                      <button class="btn btn-primary ms-2" onclick="showTab('next')">Next</button>
+                                      @else
+                                      <a class="btn btn-primary ms-2" href="{{url('user/answer')}}">Finish</a>
+                                      @endif
                                   </div>
                                       </div>
                                  @php
@@ -281,3 +285,4 @@ function showTab(direction) {
 </script>
   
 @endsection
+

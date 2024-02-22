@@ -11,14 +11,14 @@
       </ol>
     </nav>
   </div>
-
-  <section class="section dashboard">
-    <div class="row">
 @if(Session::has('success'))
 <script>
     alert('{{session("success")}}');
 </script>
 @endif
+  <section class="section dashboard">
+    <div class="row">
+
       <!-- Left side columns -->
       <div class="col-lg-12">
         <div class="row">

@@ -147,10 +147,38 @@
                                                                     <div class="card-body">
                                                                     <h6 class="card-title py-0 my-0"><span class="text-dark">Criteria #{{$i}}: </span>{{$criteria->title}}</h6>
                                                                     <p class="card-text pt-1">{{$criteria->description}}</p>
-                                                                    <div class="input-group mb-3">
-                                                                        <input type="number" required name="marks" class="form-control"@if($points) value="{{$points}}" @else placeholder="mark this out of {{$criteria->marks}}" @endif max="{{$criteria->marks}}" min="0" step="0.01">
-                                                                        <span class="input-group-text" id="basic-addon2">/{{$criteria->marks}}</span>
+
+
+
+                                                                     
+                                                                   
+                                                                    <div class="row mb-3">
+                                                                  
+                                                                    <div class="col-sm-12">
+                                                                        <select class="form-select" aria-label="Default select example" required name="marks">
+                                                                        <option selected disabled value="">Please Select Marks</option>
+                                                                        @if($criteria->marks == 2.5)
+
+                                                                        <option @if($points == 2.5) selected @endif value="2.5">2.5</option>
+                                                                        <option @if($points == 2) selected @endif value="2">2</option>
+                                                                        <option @if($points == 1.5) selected @endif value="1.5">1.5</option>
+                                                                        <option @if($points == 1) selected @endif value="1">1</option>
+                                                                        <option @if($points == 0.5) selected @endif value="0.5">0.5</option>
+                                                                        <option  value="0">0</option>
+                                                                        @else
+
+                                                                        <option  value="0">0</option>
+                                                                        <option @if($points == 1) selected @endif value="1">1</option>
+                                                                        <option @if($points == 2) selected @endif value="2">2</option>
+                                                                        <option @if($points == 3) selected @endif value="3">3</option>
+                                                                        <option @if($points == 4) selected @endif value="4">4</option>
+                                                                        <option @if($points == 5) selected @endif value="5">5</option>
+                                                                        
+                                                                        @endif
+                                                                        </select>
                                                                     </div>
+                                                                    </div>
+
                                                                     <div class="form-floating mb-3">
                                                                     <textarea class="form-control" required id="floatingTextarea" name="comment" style="height: 100px;">{{$comment}}</textarea>
                                                                     <label for="floatingTextarea">Comment</label>

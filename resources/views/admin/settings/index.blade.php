@@ -13,7 +13,11 @@
       </ol>
     </nav>
   </div>
-
+@if(Session::has('success'))
+<script>
+    alert('{{session("success")}}');
+</script>
+@endif
   <section class="section dashboard">
     <div class="row">
 

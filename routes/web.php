@@ -106,7 +106,9 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::resource('/admin/setting', SettingController::class);
     Route::get('admin/setting/{id}/dates', [SettingController::class,'datesCreate']);
+
     Route::put('admin/setting/{id}/dates/store', [SettingController::class,'datesStore'])->name('admin.settings.dates');
+    
     Route::put('admin/setting/{id}/activate', [SettingController::class,'yearActivate'])->name('admin.settings.year.active');
 
 });
